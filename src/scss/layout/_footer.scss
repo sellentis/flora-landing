@@ -1,0 +1,127 @@
+.footer {
+  &__inner {
+    position: relative;
+    &:after {
+      @include pseudo();
+      bottom: -10px;
+      top: -12px;
+      left: 0;
+      right: 0;
+      background: url(../img/footer/bg.png) repeat-x center top;
+      z-index: 1;
+    }
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+  &__menu {
+    padding: 50px 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    @include respond-to('tablet') {
+      display: none;
+    }
+  }
+  &__link {
+    font-family: $font-family-secondary;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: $clWhite;
+    @include hover-link();
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0 50px;
+    @include respond-to('tablet') {
+      padding: 40px 0 30px;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  &__hint {
+    width: calc(50% - 85px);
+    font-family: $font-family-secondary;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+    color: $clWhite;
+    @include respond-to('tablet') {
+      text-align: center;
+      order: 2;
+      width: 100%;
+    }
+  }
+  &__logo {
+    flex: 0 0 160px;
+    height: 160px;
+    width: 160px;
+    @include respond-to('tablet') {
+      flex-basis: 100px;
+      height: 100px;
+      width: 100px;
+      order: 1
+    }
+    img {
+      width: 100%;
+    }
+  }
+  &__socials {
+    width: calc(50% - 85px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    @include respond-to('tablet') {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+    }
+    &-hint {
+      font-family: $font-family-secondary;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 26px;
+      color: $clWhite;
+      margin-right: 20px;
+      @include respond-to('tablet') {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+      }
+    }
+  }
+  &__social {
+    @include hover-icon();
+    svg {
+      height: 50px;
+      width: 50px;
+      path {
+        fill: $clWhite;
+      }
+      @include respond-to('tablet') {
+        height: 45px;
+        width: 45px;
+      }
+    }
+  }
+  
+  &__copy {
+    font-family: $font-family-secondary;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: $clWhite;
+    text-align: center;
+    background: $clGreen;
+    padding: 20px 10px;
+    position: relative;
+    z-index: 3;
+  }
+}

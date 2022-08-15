@@ -1,0 +1,83 @@
+// local fonts example
+// @include font-face('Circe', 'Circe-Bold', '../fonts/', 'Circe-Bold', 700, normal);
+
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Roboto', sans-serif;
+$font-weight-primary: 400;
+
+body {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-primary;
+  color: $clGray;
+}
+
+.page__header {
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 90px;
+  color: $clWhite;
+  @include respond-to('tablet-wide') {
+    font-size: 46px;
+    line-height: 60px;
+  }
+  @include respond-to('tablet') {
+    font-size: 36px;
+    line-height: 45px;
+  }
+  &--center {
+    text-align: center;
+  }
+}
+.section__header {
+  font-weight: 900;
+  font-size: 54px;
+  line-height: 65px;
+  color: $clGray;
+  margin-bottom: 20px;
+  @include respond-to('tablet-wide') {
+    font-size: 46px;
+    line-height: 60px;
+  }
+  @include respond-to('tablet') {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  &--center {
+    text-align: center;
+  }
+  &--white {
+    color: $clWhite;
+  }
+}
+.section__subheader {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 36px;
+  text-align: center;
+  max-width: 930px;
+  margin: 0 auto;
+  @include respond-to('mobile') {
+    font-size: 18px;
+    line-height: 32px;
+  }
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+.section__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  &--left {
+    text-align: left;
+  }
+}
+
+
+@include respond-to('mobile') {}
+
+@include respond-to('tablet') {}

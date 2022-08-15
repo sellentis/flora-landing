@@ -1,0 +1,118 @@
+@mixin font-face($family, $file, $path, $svg, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url($path + $file + '.eot');
+    src: url($path + $file + '.eot?#iefix') format('embedded-opentype'),
+      url($path + $file + '.woff') format('woff'),
+      url($path + $file + '.woff2') format('woff2'),
+      url($path + $file + '.otf') format('opentype'),
+      url($path + $file + '.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin pseudo($content: '', $display: block, $pos: absolute) {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin hover-link($color: #fff) {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-bottom: 2px solid;
+    transform: scaleX(0);
+    transform-origin: 100% 100%;
+    transition: transform .6s;
+    transition-timing-function: cubic-bezier(.39, .575, .28, .995);
+  }
+
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+@mixin hover-contact($color: #fff) {
+  span {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-bottom: 2px solid;
+      transform: scaleX(0);
+      transform-origin: 100% 100%;
+      transition: transform .6s;
+      transition-timing-function: cubic-bezier(.39, .575, .28, .995);
+    }
+  }
+
+  &:hover {
+    span {
+      &:after {
+        transform: scaleX(1);
+        transform-origin: 0 0;
+      }
+    }
+  }
+}
+
+@mixin hover-icon($color: #fff) {
+  border-radius: 50%;
+  display: inline-flex;
+
+  &:hover {
+    transform: scale(1.05)
+  }
+}
+
+@mixin triangle($width, $direction, $color) {
+  width: 0;
+  height: 0;
+
+  @if $direction==up {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-bottom: $width solid $color;
+  }
+
+  @if $direction==down {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-top: $width solid $color;
+  }
+
+  @if $direction==left {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-right: $width solid $color;
+  }
+
+  @if $direction==right {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-left: $width solid $color;
+  }
+}
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
